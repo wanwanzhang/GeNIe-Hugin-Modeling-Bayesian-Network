@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="Battery_Age">
+			<state id="Years_0_to_2" />
+			<state id="Years_2_to_5" />
+			<state id="Years_5_to_10" />
+			<state id="Years_10_plus" />
+			<probabilities>0.2 0.3 0.3 0.2</probabilities>
+		</cpt>
+		<cpt id="Battery">
+			<state id="ok" />
+			<state id="fault" />
+			<parents>Battery_Age</parents>
+			<probabilities>0.9 0.1 0.8 0.2 0.6 0.4 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Lights">
+			<state id="ok" />
+			<state id="fault" />
+			<parents>Battery</parents>
+			<probabilities>0.9 0.1 1 0</probabilities>
+		</cpt>
+		<cpt id="Starter">
+			<state id="ok" />
+			<state id="fault" />
+			<probabilities>0.9 0.1</probabilities>
+		</cpt>
+		<cpt id="Engine_Turns_Over">
+			<state id="ok" />
+			<state id="fault" />
+			<parents>Battery Starter</parents>
+			<probabilities>0.8 0.2 0 1 0 1 0 1</probabilities>
+		</cpt>
+		<cpt id="Fuel_Pump">
+			<state id="ok" />
+			<state id="fault" />
+			<probabilities>0.9 0.1</probabilities>
+		</cpt>
+		<cpt id="Fuel_Line">
+			<state id="ok" />
+			<state id="fault" />
+			<probabilities>0.9 0.1</probabilities>
+		</cpt>
+		<cpt id="Fuel">
+			<state id="yes" />
+			<state id="no" />
+			<probabilities>0.8 0.2</probabilities>
+		</cpt>
+		<cpt id="Fuel_Subsystem">
+			<state id="ok" />
+			<state id="fault" />
+			<parents>Fuel_Line Fuel Fuel_Pump</parents>
+			<probabilities>0.95 0.05 0.3 0.7 0 1 0 1 0.4 0.6 0.2 0.8 0 1 0 1</probabilities>
+		</cpt>
+		<cpt id="Fuel_Gauge">
+			<state id="ok" />
+			<state id="fault" />
+			<parents>Fuel</parents>
+			<probabilities>1 0 0 1</probabilities>
+		</cpt>
+		<cpt id="Spark_Plugs">
+			<state id="ok" />
+			<state id="fault" />
+			<probabilities>0.85 0.15</probabilities>
+		</cpt>
+		<cpt id="Engine_Starts">
+			<state id="yes" />
+			<state id="no" />
+			<parents>Fuel_Subsystem Engine_Turns_Over Spark_Plugs</parents>
+			<probabilities>0.9 0.1 0.1 0.9 0.1 0.9 0.1 0.9 0.05 0.95 0.01 0.99 0.05 0.95 0 1</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.1.1104.0 ACADEMIC" name="Network1" faultnameformat="nodestate">
+			<node id="Battery_Age">
+				<name>Battery_Age</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>98 114 215 144</position>
+				<barchart active="true" width="179" height="90" />
+			</node>
+			<node id="Battery">
+				<name>Battery</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>317 249 365 279</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Lights">
+				<name>Lights</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>77 325 125 355</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Engine_Turns_Over">
+				<name>Engine_Turns_Over</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>271 415 404 445</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Starter">
+				<name>Starter</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>50 422 165 452</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Fuel_Pump">
+				<name>Fuel_Pump</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>352 103 456 133</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Fuel_Line">
+				<name>Fuel_Line</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>566 142 654 172</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Fuel">
+				<name>Fuel</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>816 207 864 237</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Fuel_Subsystem">
+				<name>Fuel_Subsystem</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>427 330 551 360</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Fuel_Gauge">
+				<name>Fuel_Gauge</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>812 327 899 359</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Engine_Starts">
+				<name>Engine_Starts</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>454 516 603 548</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+			<node id="Spark_Plugs">
+				<name>Spark_Plugs</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="3" />
+				<position>728 426 826 458</position>
+				<barchart active="true" width="179" height="64" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
